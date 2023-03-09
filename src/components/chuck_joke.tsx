@@ -1,7 +1,19 @@
 import Joke from '../joke';
-const ChuckJoke: React.FC<Joke> = ({ id, joke }) =>
+interface ChuckJokeProps {
+    jokes: Joke[];
+  }
 
-    <p >{joke}</p>
+  const ChuckJoke: React.FC<ChuckJokeProps> = ({ jokes }) => {
+    return (
+      <>
+        <div className='joke'>
+          {jokes.map((joke) => {
+            return <p key={joke.id}>{joke.joke}</p>;
+          })}
+        </div>
+      </>
+    );
+  };
 
 
 
